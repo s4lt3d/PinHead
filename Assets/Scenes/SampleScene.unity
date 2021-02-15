@@ -12248,6 +12248,10 @@ PrefabInstance:
       propertyPath: jumpTimeMax
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 288752392141167308, guid: 26a043ba8ac50c94e9f331821133c9df, type: 3}
+      propertyPath: explosiveForce
+      value: 4000
+      objectReference: {fileID: 0}
     - target: {fileID: 288752392141167309, guid: 26a043ba8ac50c94e9f331821133c9df, type: 3}
       propertyPath: m_RootOrder
       value: 4

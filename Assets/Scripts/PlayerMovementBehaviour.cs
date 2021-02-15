@@ -8,23 +8,25 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	public Rigidbody playerRigidbody;
 	public Transform tip;
 	public Animator animator;
+	public ParticleSystem dust;
 
 	[Header("Gravity Settings")]
 	public Vector3 gravity = new Vector3(0, -40, 0);
 
 
-	[Header("Movement Settings")]
+	[Header("Jump Settings")]
 
 	public Vector3 jumpSpeed = new Vector3(0, 60, 0);
-
-	public float horizontalSpeed = 1.0f;
 	public float jumpForce = 1.0f;
-	
-	public float swingDeltaTime = 0.2f;
-	public ParticleSystem dust;
-		
-	public float explosiveForce = 10;
 	[Range(0.1f, 1)] public float jumpTimeMax = 0.3f;
+
+	[Header("Movement Settings")]
+	public float horizontalSpeed = 1.0f;
+
+	[Header("Paddle Settings")]
+	public float explosiveForce = 10;
+	[Range(0.05f, 1)] public float swingTime = 0.1f;
+	
 
 	
 	float horizonalAxis;
@@ -45,7 +47,9 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	
 	List<GameObject> pinBallObjects = new List<GameObject>();
 
-	float jumpStart;
+	float jumpStartTime;
+
+	float swingStartTime;
 	
 
 	private Vector3 movementDirection;
@@ -92,14 +96,14 @@ public class PlayerMovementBehaviour : MonoBehaviour
 			case Jump_State.grounded:
 				if(jump)
 					jumpState = Jump_State.jumping;
-				jumpStart = Time.fixedTime;
+				jumpStartTime = Time.fixedTime;
 				break;
 
 			case Jump_State.jumping:
 				isGrounded = false;
 				if (jump == false)
 					jumpState = Jump_State.falling;
-				if ((Time.fixedTime - jumpStart) > jumpTimeMax)
+				if ((Time.fixedTime - jumpStartTime) > jumpTimeMax)
 					jumpState = Jump_State.falling;
 				break;
 
@@ -130,11 +134,17 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
 		if (swingChange)
 		{
+			if (swingChange)
+				swingStartTime = Time.fixedTime;
 			swingChange = false;
-
+			
 
 			animator.SetBool("Swing", swing);
 
+		}
+
+		if (Time.fixedTime - swingStartTime < swingTime)
+		{
 			foreach (GameObject o in pinBallObjects)
 			{
 				o.GetComponent<Rigidbody>().AddExplosionForce(explosiveForce, tip.position, 5.5f);
