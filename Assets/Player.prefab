@@ -5083,3 +5083,4 @@ MonoBehaviour:
   pivotRest: 9
   pivotSwing: -30
   swingSpeed: 20
+  explosiveForce: 4000

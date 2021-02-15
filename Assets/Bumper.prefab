@@ -1473,6 +1473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee546b3eea577fb4e83ceea7da3a45a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosiveForce: 1500
+  explosiveForce: 2000
   scale: 1.5
   speed: 10
