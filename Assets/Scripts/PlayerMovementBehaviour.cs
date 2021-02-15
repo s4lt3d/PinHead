@@ -8,6 +8,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	public Rigidbody playerRigidbody;
 	public GameObject swingPivot;
 	public Transform tip;
+	public Animator animator;
 
 	[Header("Gravity Settings")]
 	public Vector3 gravity = new Vector3(0, -30, 0);
@@ -21,9 +22,9 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	public float swingDeltaTime = 0.2f;
 	public ParticleSystem dust;
 
-	public float pivotRest = 0;
-	public float pivotSwing = -45;
-	public float swingSpeed = 20;
+	//public float pivotRest = 0;
+	//public float pivotSwing = -45;
+	//public float swingSpeed = 20;
 
 	public float explosiveForce = 10;
 
@@ -89,17 +90,8 @@ public class PlayerMovementBehaviour : MonoBehaviour
 		{
 			swingChange = false;
 
-			if (swing)
-			{
-				transform.rotation = Quaternion.Euler(0, 0, pivotSwing);
-				//playerRigidbody.MoveRotation(Quaternion.Euler(0, direction, pivotSwing));
-			}
 
-			else
-			{
-				transform.rotation = Quaternion.Euler(0, 0, pivotRest);
-				//playerRigidbody.MoveRotation(Quaternion.Euler(0, direction, pivotRest));
-			}
+			animator.SetBool("Swing", swing);
 
 			foreach (GameObject o in pinBallObjects)
 			{

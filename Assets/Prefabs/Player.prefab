@@ -4818,6 +4818,7 @@ GameObject:
   - component: {fileID: 288752392141167314}
   - component: {fileID: 288752392141167308}
   - component: {fileID: 1996210100}
+  - component: {fileID: 1996210096}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4969,14 +4970,12 @@ MonoBehaviour:
   playerRigidbody: {fileID: 288752392141167310}
   swingPivot: {fileID: 0}
   tip: {fileID: 2740187743581511145}
+  animator: {fileID: 1996210096}
   gravity: {x: 0, y: -200, z: 0}
-  horizontalSpeed: 1000
+  horizontalSpeed: 2000
   jumpForce: 300
   swingDeltaTime: 0.2
   dust: {fileID: 288752390889408517}
-  pivotRest: 9
-  pivotSwing: -30
-  swingSpeed: 20
   explosiveForce: 4000
 --- !u!64 &1996210100
 MeshCollider:
@@ -4992,6 +4991,25 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: f888bac8a84a18e47b42ba1cc4a41e48, type: 3}
+--- !u!95 &1996210096
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288752392141167311}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f1a5c274ed100404bbc22f45555196da, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!64 &517446906
 MeshCollider:
   m_ObjectHideFlags: 0
