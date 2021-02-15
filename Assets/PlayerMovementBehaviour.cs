@@ -7,6 +7,11 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	[Header("Component References")]
 	public Rigidbody playerRigidbody;
 	public GameObject swingPivot;
+	public Transform tip;
+
+	[Header("Gravity Settings")]
+	public Vector3 gravity = new Vector3(0, -30, 0);
+
 
 	[Header("Movement Settings")]
 	
@@ -98,10 +103,11 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
 			foreach (GameObject o in pinBallObjects)
 			{
-				o.GetComponent<Rigidbody>().AddExplosionForce(explosiveForce, transform.position, 3);
+				o.GetComponent<Rigidbody>().AddExplosionForce(explosiveForce, tip.position, 5.5f);
 			}
-
 		}
+
+		playerRigidbody.AddForce(gravity, ForceMode.Acceleration);
 	}
 
 	void OnCollisionEnter(Collision other)
