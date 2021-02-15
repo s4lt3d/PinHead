@@ -5070,7 +5070,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 100
-  field of view: 22.285404
+  field of view: 28
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -5096,7 +5096,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.50666, y: 10.462728, z: -60.20278}
+  m_LocalPosition: {x: 28.109573, y: 11, z: -59.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8795,7 +8795,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700463061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.50666, y: 10.462728, z: -60.20278}
+  m_LocalPosition: {x: 28.109573, y: 13.772483, z: -58.341927}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1531426945}
@@ -11668,6 +11668,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 453115015868220586, guid: 26a043ba8ac50c94e9f331821133c9df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a3e930939b7a5d41b8824643a616fcd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26a043ba8ac50c94e9f331821133c9df, type: 3}
 --- !u!1001 &7374131627692668296
