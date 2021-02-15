@@ -1,11 +1,12 @@
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerMovementBehaviour : MonoBehaviour
 {
 
 	[Header("Component References")]
 	public Rigidbody playerRigidbody;
+	public GameObject swingPivot;
 
 	[Header("Movement Settings")]
 	
@@ -15,17 +16,28 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	public float swingDeltaTime = 0.2f;
 	public ParticleSystem dust;
 
-	float nextBulletTime = 0;
+	public float pivotRest = 0;
+	public float pivotSwing = -45;
+	public float swingSpeed = 20;
+
+	public float explosiveForce = 10;
+
+	float nextSwingTime = 0;
 	float horizonalAxis;
 	int jump = 0;
-
+	bool swing = false;
+	bool swingPrev = false;
+	bool swingChange = true;
+	float direction = 180;
+	List<GameObject> pinBallObjects = new List<GameObject>();
+	
 
 	private Vector3 movementDirection;
 
 	// Use this for initialization
 	void Start()
 	{
-	
+		
 	}
 
 	public void UpdateMovementData(Vector3 newMovementDirection)
@@ -34,52 +46,80 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	}
 
 	public void UpdateJumpData(bool newJump)
-    {
-		jump = 1;
-    }
-
-	void Update()
 	{
-		horizonalAxis = movementDirection.x;
-		if (horizonalAxis < 0)
-			gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
-
-		if (horizonalAxis > 0)
-			gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-
-		//if (Input.GetButton("Jump") && jump == 0)
-		//	jump = 1;
-
-		/*if (Input.GetButton("Fire1"))
+		
+		if (newJump)
 		{
 
-			if (Time.time >= nextBulletTime)
-			{
-				//nextBulletTime = Time.time + bulletDeltaTime;
-				//Instantiate(bullet, bulletSpawnPoint.transform.position, transform.rotation);
-				//playerRigidbody.AddRelativeForce(gunKickForce, ForceMode.Impulse);
-			}
+			if(jump == 0)
+				jump = 1;
 		}
-		*/
+    }
+
+	public void UpdateSwingData(bool newSwing)
+	{
+		swingPrev = swing;
+		swing = newSwing;
+		if (swingPrev != swing)
+			swingChange = true;
 	}
+
 
 	// Update is called once per frame
 	void FixedUpdate()
 	{
-		playerRigidbody.AddForce(new Vector3(horizonalAxis * horizontalSpeed, 0, 0), ForceMode.Impulse);
+		horizonalAxis = movementDirection.x;
+		
+		playerRigidbody.velocity = new Vector3(horizonalAxis * horizontalSpeed * Time.deltaTime, playerRigidbody.velocity.y, 0);
+		
+
 		if (jump == 1)
 		{
 			jump++;
-			playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+			if (Mathf.Abs(playerRigidbody.velocity.y) < 30)
+				playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+		}
+
+		if (swingChange)
+		{
+			swingChange = false;
+
+			if (swing)
+			{
+				transform.rotation = Quaternion.Euler(0, 0, pivotSwing);
+				//playerRigidbody.MoveRotation(Quaternion.Euler(0, direction, pivotSwing));
+			}
+
+			else
+			{
+				transform.rotation = Quaternion.Euler(0, 0, pivotRest);
+				//playerRigidbody.MoveRotation(Quaternion.Euler(0, direction, pivotRest));
+			}
+
+			foreach (GameObject o in pinBallObjects)
+			{
+				o.GetComponent<Rigidbody>().AddExplosionForce(explosiveForce, transform.position, 3);
+			}
+
 		}
 	}
 
 	void OnCollisionEnter(Collision other)
 	{
+
 		if (other.gameObject.CompareTag("Ground"))
 		{
 			jump = 0;
 			dust.Play();
 		}
+		else if(other.gameObject.CompareTag("Pinball"))
+		{
+			pinBallObjects.Add(other.gameObject);
+        }
 	}
+
+    void OnCollisionExit(Collision collision)
+    {
+		pinBallObjects.Remove(collision.gameObject);
+    }
 }

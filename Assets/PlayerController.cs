@@ -15,12 +15,16 @@ public class PlayerController : MonoBehaviour
     private bool jump = false;
     private bool swing = false;
 
+
     public Camera mainCamera;
+
+    [Header("Input Settings")]
+    public PlayerInput playerInput;
 
     // This function is assigned in the Player Input component in the Editor
     public void OnMovement(InputAction.CallbackContext value)
     {
-        Debug.Log(value);
+
         Vector2 inputMovement = value.ReadValue<Vector2>();
         rawInputMovement = new Vector3(inputMovement.x, 0, inputMovement.y);
         
@@ -28,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext value)
     {
-        Debug.Log("Jump");
+
         jump = value.ReadValueAsButton();
 
     }
@@ -49,6 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         playerMovementBehaviour.UpdateMovementData(rawInputMovement);
         playerMovementBehaviour.UpdateJumpData(jump);
+        playerMovementBehaviour.UpdateSwingData(swing);
     }
 
 
