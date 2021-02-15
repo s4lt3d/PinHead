@@ -13397,6 +13397,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 288752392141167308, guid: 26a043ba8ac50c94e9f331821133c9df, type: 3}
+      propertyPath: jumpForce
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 288752392141167308, guid: 26a043ba8ac50c94e9f331821133c9df, type: 3}
+      propertyPath: jumpTimeMax
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 288752392141167309, guid: 26a043ba8ac50c94e9f331821133c9df, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -13440,10 +13448,6 @@ PrefabInstance:
     - target: {fileID: 288752392141167309, guid: 26a043ba8ac50c94e9f331821133c9df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 288752392141167310, guid: 26a043ba8ac50c94e9f331821133c9df, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 288752392141167311, guid: 26a043ba8ac50c94e9f331821133c9df, type: 3}
       propertyPath: m_Name

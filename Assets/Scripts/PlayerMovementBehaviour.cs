@@ -6,36 +6,46 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
 	[Header("Component References")]
 	public Rigidbody playerRigidbody;
-	public GameObject swingPivot;
 	public Transform tip;
 	public Animator animator;
 
 	[Header("Gravity Settings")]
-	public Vector3 gravity = new Vector3(0, -30, 0);
+	public Vector3 gravity = new Vector3(0, -40, 0);
 
 
 	[Header("Movement Settings")]
-	
+
+	public Vector3 jumpSpeed = new Vector3(0, 60, 0);
+
 	public float horizontalSpeed = 1.0f;
 	public float jumpForce = 1.0f;
 	
 	public float swingDeltaTime = 0.2f;
 	public ParticleSystem dust;
-
-	//public float pivotRest = 0;
-	//public float pivotSwing = -45;
-	//public float swingSpeed = 20;
-
+		
 	public float explosiveForce = 10;
+	[Range(0.1f, 1)] public float jumpTimeMax = 0.3f;
 
-	float nextSwingTime = 0;
+	
 	float horizonalAxis;
-	int jump = 0;
+	bool jump = false;
+	bool jumpPrev = false;
+	bool jumpChange = false;
+	bool jumpAllow = false;
+	bool isGrounded = true;
+
+	// Jump state machine:
+	enum Jump_State { grounded, jumping, falling, wait_for_ground};
+	Jump_State jumpState;
+
+
 	bool swing = false;
 	bool swingPrev = false;
 	bool swingChange = true;
-	float direction = 180;
+	
 	List<GameObject> pinBallObjects = new List<GameObject>();
+
+	float jumpStart;
 	
 
 	private Vector3 movementDirection;
@@ -53,14 +63,12 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
 	public void UpdateJumpData(bool newJump)
 	{
-		
-		if (newJump)
-		{
 
-			if(jump == 0)
-				jump = 1;
-		}
-    }
+		jumpPrev = jump;
+		jump = newJump;
+		if (jumpPrev != jump)
+			jumpChange = true;
+	}
 
 	public void UpdateSwingData(bool newSwing)
 	{
@@ -79,11 +87,45 @@ public class PlayerMovementBehaviour : MonoBehaviour
 		playerRigidbody.velocity = new Vector3(horizonalAxis * horizontalSpeed * Time.deltaTime, playerRigidbody.velocity.y, 0);
 		
 
-		if (jump == 1)
-		{
-			jump++;
-			if (Mathf.Abs(playerRigidbody.velocity.y) < 30)
-				playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+		switch(jumpState)
+        {
+			case Jump_State.grounded:
+				if(jump)
+					jumpState = Jump_State.jumping;
+				jumpStart = Time.fixedTime;
+				break;
+
+			case Jump_State.jumping:
+				isGrounded = false;
+				if (jump == false)
+					jumpState = Jump_State.falling;
+				if ((Time.fixedTime - jumpStart) > jumpTimeMax)
+					jumpState = Jump_State.falling;
+				break;
+
+			case Jump_State.falling:
+				if (isGrounded)
+					jumpState = Jump_State.wait_for_ground;
+				break;
+
+			case Jump_State.wait_for_ground:
+				if (jump == false)
+					if (isGrounded)
+						jumpState = Jump_State.grounded;
+					else
+						jumpState = Jump_State.falling;
+				break;
+
+			default:
+				if (isGrounded)
+					jumpState = Jump_State.grounded;
+				break;
+        }
+
+
+		if (jumpState == Jump_State.jumping)
+		{			
+			playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, jumpForce, playerRigidbody.velocity.z);
 		}
 
 		if (swingChange)
@@ -107,8 +149,10 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
 		if (other.gameObject.CompareTag("Ground"))
 		{
-			jump = 0;
+			jumpAllow = true;
 			dust.Play();
+			isGrounded = true;
+			
 		}
 		else if(other.gameObject.CompareTag("Pinball"))
 		{
