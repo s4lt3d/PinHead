@@ -5069,7 +5069,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 55
+  far clip plane: 100
   field of view: 22.285404
   orthographic: 0
   orthographic size: 5
@@ -5096,7 +5096,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.383839, y: 11, z: -60.20278}
+  m_LocalPosition: {x: 24.50666, y: 10.462728, z: -60.20278}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7912,17 +7912,17 @@ MonoBehaviour:
   m_YDamping: 1
   m_ZDamping: 1
   m_TargetMovementOnly: 1
-  m_ScreenX: 0.5026041
-  m_ScreenY: 0.6148148
+  m_ScreenX: 0.5
+  m_ScreenY: 0.5
   m_CameraDistance: 53.20278
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 0.30756992
-  m_SoftZoneHeight: 0.15598416
+  m_SoftZoneWidth: 0.47111163
+  m_SoftZoneHeight: 0.80783623
   m_BiasX: 0
-  m_BiasY: 0
+  m_BiasY: -0.00000007378308
   m_CenterOnActivate: 1
   m_GroupFramingMode: 2
   m_AdjustmentMode: 0
@@ -7931,8 +7931,8 @@ MonoBehaviour:
   m_MaxDollyOut: 5000
   m_MinimumDistance: 1
   m_MaximumDistance: 5000
-  m_MinimumFOV: 3
-  m_MaximumFOV: 60
+  m_MinimumFOV: 22
+  m_MaximumFOV: 80
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
 --- !u!114 &1531426947
@@ -8776,7 +8776,7 @@ MonoBehaviour:
     FieldOfView: 28
     OrthographicSize: 5
     NearClipPlane: 0.3
-    FarClipPlane: 55
+    FarClipPlane: 100
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
@@ -8795,7 +8795,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700463061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.383839, y: 13.508752, z: -60.20278}
+  m_LocalPosition: {x: 24.50666, y: 10.462728, z: -60.20278}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1531426945}
