@@ -2355,6 +2355,10 @@ PrefabInstance:
       propertyPath: swingSpeed
       value: 220
       objectReference: {fileID: 0}
+    - target: {fileID: 288752392141167308, guid: 26a043ba8ac50c94e9f331821133c9df, type: 3}
+      propertyPath: horizontalSpeed
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 288752392141167309, guid: 26a043ba8ac50c94e9f331821133c9df, type: 3}
       propertyPath: m_RootOrder
       value: 45
@@ -5030,6 +5034,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5071,8 +5076,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 100
   field of view: 28
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 10.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5096,7 +5101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.109573, y: 11, z: -59.5}
+  m_LocalPosition: {x: 24.500004, y: 10, z: -60.20278}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5136,6 +5141,38 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &998991021
 GameObject:
   m_ObjectHideFlags: 0
@@ -7933,7 +7970,7 @@ MonoBehaviour:
   m_MaximumDistance: 5000
   m_MinimumFOV: 22
   m_MaximumFOV: 80
-  m_MinimumOrthoSize: 1
+  m_MinimumOrthoSize: 10
   m_MaximumOrthoSize: 5000
 --- !u!114 &1531426947
 MonoBehaviour:
@@ -8795,7 +8832,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700463061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.109573, y: 13.772483, z: -58.341927}
+  m_LocalPosition: {x: 24.5, y: 10.5, z: -60.20278}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1531426945}
@@ -10446,7 +10483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028769234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalPosition: {x: -0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11620,6 +11657,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 288752392141167308, guid: 26a043ba8ac50c94e9f331821133c9df, type: 3}
+      propertyPath: horizontalSpeed
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 288752392141167309, guid: 26a043ba8ac50c94e9f331821133c9df, type: 3}
       propertyPath: m_RootOrder
       value: 4
