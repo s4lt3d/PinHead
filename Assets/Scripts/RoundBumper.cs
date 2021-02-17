@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RoundBumper : MonoBehaviour
 {
+    public AudioSource audio;
 
     public float explosiveForce = 1000;
     public float scale = 1.5f;
@@ -31,6 +32,7 @@ public class RoundBumper : MonoBehaviour
         {
             rb.AddExplosionForce(explosiveForce, transform.position, 3);
         }
+        audio.Play();
     }
 
 }
