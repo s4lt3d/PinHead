@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5813594098759327118}
   - component: {fileID: 5813594098759327114}
   - component: {fileID: 1495806866}
+  - component: {fileID: 1683185155}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Pinball
@@ -95,7 +96,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.45
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5813594098759327114
 Rigidbody:
@@ -220,3 +221,16 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &1683185155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813594098759327117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957694b74c590d541959f7409ddecc98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialVelocity: 10
