@@ -11,7 +11,7 @@ public class InitialKick : MonoBehaviour
     void Start()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-        rb.velocity = Vector3.left * initialVelocity;
+        rb.velocity = transform.right * initialVelocity;
     }
 
     // Update is called once per frame
