@@ -16,7 +16,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
 	[Header("Jump Settings")]
 
-	public Vector3 jumpSpeed = new Vector3(0, 60, 0);
+	//public Vector3 jumpSpeed = new Vector3(0, 60, 0);
 	public float jumpForce = 1.0f;
 	[Range(0.1f, 1)] public float jumpTimeMax = 0.3f;
 
@@ -127,9 +127,11 @@ public class PlayerMovementBehaviour : MonoBehaviour
         }
 
 
+		Vector3 jumpVector = gravity.normalized * -1 * jumpForce;
+
 		if (jumpState == Jump_State.jumping)
 		{			
-			playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, jumpForce, playerRigidbody.velocity.z);
+			playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, jumpVector.y, playerRigidbody.velocity.z);
 		}
 
 		if (swingChange)
