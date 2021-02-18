@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5813594098759327114}
   - component: {fileID: 1495806866}
   - component: {fileID: 1683185155}
+  - component: {fileID: 1855910887}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Pinball
@@ -234,3 +235,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialVelocity: 50
+--- !u!114 &1855910887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813594098759327117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6b2b4da691f9d418ab7173dafbe2cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsToKill: 0
+  isEnabled: 0

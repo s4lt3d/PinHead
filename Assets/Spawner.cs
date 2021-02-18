@@ -5,12 +5,17 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject spawn;
-    public float time = 1;
+    public float time = 1f;
+    public float killAfterSeconds = 1f;
+    
 
     private IEnumerator SpawnNewObject()
     {
         yield return new WaitForSeconds(time);
-        Instantiate(spawn, transform.position, transform.rotation);
+        GameObject g = Instantiate(spawn, transform.position, transform.rotation);
+        g.GetComponent<DestroyAfterTime>().secondsToKill = killAfterSeconds;
+        g.GetComponent<DestroyAfterTime>().isEnabled = true;
+
         StartCoroutine(SpawnNewObject());
 
     }
