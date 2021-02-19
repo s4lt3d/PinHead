@@ -10,35 +10,20 @@ public class BallCapture : MonoBehaviour
     public ParticleSystem particles;
     public Light pointLight;
     public Color captureColor;
-    public Collider collider;
+    public Collider2D collider2d;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     [System.Obsolete]
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.gameObject.CompareTag("Pinball"))
         {
             GameObject.Destroy(other.gameObject);
             GameObject.Instantiate(captureObject, transform);
             particles.enableEmission = false;
             pointLight.color = captureColor;
-            collider.enabled = false;
-
-
-
+            collider2d.enabled = false;
         }
-        
     }
+
 }

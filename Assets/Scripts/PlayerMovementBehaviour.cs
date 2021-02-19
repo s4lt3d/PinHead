@@ -9,6 +9,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	public Transform tip;
 	public Animator animator;
 	public ParticleSystem dust;
+	public CapsuleCollider groundDetector;
 
 	[Header("Gravity Settings")]
 	public Vector3 gravity = new Vector3(0, -40, 0);

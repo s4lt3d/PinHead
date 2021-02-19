@@ -6230,8 +6230,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4431315894756307662}
   - component: {fileID: 4431315894756307661}
-  - component: {fileID: 4431315894756307658}
   - component: {fileID: 7283801906168270904}
+  - component: {fileID: 1036391504}
   m_Layer: 0
   m_Name: Ball Capture
   m_TagString: Hole
@@ -6263,19 +6263,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4431315894756307656}
   m_Mesh: {fileID: 0}
---- !u!135 &4431315894756307658
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4431315894756307656}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.52
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &7283801906168270904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6292,7 +6279,23 @@ MonoBehaviour:
   particles: {fileID: 1245882622}
   pointLight: {fileID: 6568816653095179507}
   captureColor: {r: 1, g: 1, b: 1, a: 0}
-  collider: {fileID: 4431315894756307658}
+  collider: {fileID: 0}
+--- !u!58 &1036391504
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4431315894756307656}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &6568816653095179505
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
     [Header("Sub Behaviours")]
     public PlayerMovementBehaviour playerMovementBehaviour;
 
@@ -15,19 +14,15 @@ public class PlayerController : MonoBehaviour
     private bool jump = false;
     private bool swing = false;
 
-
     public Camera mainCamera;
 
     [Header("Input Settings")]
     public PlayerInput playerInput;
 
-    // This function is assigned in the Player Input component in the Editor
     public void OnMovement(InputAction.CallbackContext value)
     {
-
         Vector2 inputMovement = value.ReadValue<Vector2>();
         rawInputMovement = new Vector3(inputMovement.x, 0, inputMovement.y);
-        
     }
 
     public void OnJump(InputAction.CallbackContext value)

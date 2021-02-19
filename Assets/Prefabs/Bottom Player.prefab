@@ -167,9 +167,9 @@ MonoBehaviour:
   animator: {fileID: 4275520227276440784}
   dust: {fileID: 1012050599347525156}
   gravity: {x: 0, y: -200, z: 0}
-  jumpForce: 35
-  jumpTimeMax: 0.25
-  horizontalSpeed: 2000
+  jumpForce: 25
+  jumpTimeMax: 0.183
+  horizontalSpeed: 1500
   explosiveForce: 4000
   swingTime: 0.1
 --- !u!64 &723492313454420373
@@ -180,8 +180,8 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012050597962630382}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
+  m_IsTrigger: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -212,7 +212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012050599347525153}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.747, y: -1.434, z: 0}
+  m_LocalPosition: {x: 0, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1012050597962630380}
@@ -4998,7 +4998,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676299663269018462}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
