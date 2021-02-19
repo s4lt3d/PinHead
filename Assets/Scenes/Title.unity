@@ -1746,11 +1746,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7374131628247032055, guid: 86f27a7cd82008f43b5ea5811f34196a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -422.31
+      value: -421.45
       objectReference: {fileID: 0}
     - target: {fileID: 7374131628247032055, guid: 86f27a7cd82008f43b5ea5811f34196a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.91
+      value: 20.98
       objectReference: {fileID: 0}
     - target: {fileID: 7374131628247032055, guid: 86f27a7cd82008f43b5ea5811f34196a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5757,7 +5757,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.554325, y: 2.408181}
+  m_Size: {x: 7.97, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &671436509
 MonoBehaviour:
@@ -6391,7 +6391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7374131628247032055, guid: 86f27a7cd82008f43b5ea5811f34196a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -410.62
+      value: -411.08
       objectReference: {fileID: 0}
     - target: {fileID: 7374131628247032055, guid: 86f27a7cd82008f43b5ea5811f34196a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9386,11 +9386,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7374131628247032055, guid: 86f27a7cd82008f43b5ea5811f34196a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -422.06
+      value: -421.34
       objectReference: {fileID: 0}
     - target: {fileID: 7374131628247032055, guid: 86f27a7cd82008f43b5ea5811f34196a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.73
+      value: 12.3
       objectReference: {fileID: 0}
     - target: {fileID: 7374131628247032055, guid: 86f27a7cd82008f43b5ea5811f34196a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10217,11 +10217,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5813594098759327113, guid: 5efe3f8034ab428428b20eb4facdf63e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -421.99942
+      value: -420.06
       objectReference: {fileID: 0}
     - target: {fileID: 5813594098759327113, guid: 5efe3f8034ab428428b20eb4facdf63e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.998894
+      value: 18.37
       objectReference: {fileID: 0}
     - target: {fileID: 5813594098759327113, guid: 5efe3f8034ab428428b20eb4facdf63e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16417,7 +16417,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9, y: 1}
+  m_Size: {x: 7.22, y: 1}
   m_EdgeRadius: 0
 --- !u!82 &2038075523
 AudioSource:
