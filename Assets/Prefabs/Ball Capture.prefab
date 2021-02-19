@@ -6279,7 +6279,7 @@ MonoBehaviour:
   particles: {fileID: 1245882622}
   pointLight: {fileID: 6568816653095179507}
   captureColor: {r: 1, g: 1, b: 1, a: 0}
-  collider: {fileID: 0}
+  collider2d: {fileID: 1036391504}
 --- !u!58 &1036391504
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -43,8 +43,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.24056602, g: 0.5369918, b: 1, a: 1}
-  m_Intensity: 10
-  m_Range: 10
+  m_Intensity: 16.56
+  m_Range: 2.57
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -105,9 +105,9 @@ GameObject:
   - component: {fileID: 7374131628247032054}
   - component: {fileID: 7374131628247032053}
   - component: {fileID: 7374131628247032052}
-  - component: {fileID: 7374131628247032051}
   - component: {fileID: 7374131628247032050}
   - component: {fileID: 1779816746}
+  - component: {fileID: 1357716018}
   m_Layer: 0
   m_Name: Bumper
   m_TagString: Ground
@@ -1543,19 +1543,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7374131628247032049}
   m_Mesh: {fileID: 0}
---- !u!135 &7374131628247032051
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7374131628247032049}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.1
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &7374131628247032050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1668,3 +1655,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &1357716018
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7374131628247032049}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1

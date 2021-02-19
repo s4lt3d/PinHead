@@ -5,11 +5,12 @@ public class PlayerMovementBehaviour : MonoBehaviour
 {
 
 	[Header("Component References")]
-	public Rigidbody playerRigidbody;
+	public Rigidbody2D playerRigidbody;
 	public Transform tip;
 	public Animator animator;
 	public ParticleSystem dust;
 	public CapsuleCollider groundDetector;
+	public PaddleSwing paddleSwing;
 
 	[Header("Gravity Settings")]
 	public Vector3 gravity = new Vector3(0, -40, 0);
@@ -132,7 +133,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
 		if (jumpState == Jump_State.jumping)
 		{			
-			playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, jumpVector.y, playerRigidbody.velocity.z);
+			playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpVector.y);
 		}
 
 		if (swingChange)
@@ -148,16 +149,17 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
 		if (Time.fixedTime - swingStartTime < swingTime)
 		{
-			foreach (GameObject o in pinBallObjects)
-			{
-				o.GetComponent<Rigidbody>().AddExplosionForce(explosiveForce, tip.position, 5.5f);
-			}
+			paddleSwing.swinging = true;
+		}
+		else
+        {
+			paddleSwing.swinging = false;
 		}
 
-		playerRigidbody.AddForce(gravity, ForceMode.Acceleration);
+		playerRigidbody.AddForce(gravity);
 	}
 
-	void OnCollisionEnter(Collision other)
+	void OnCollisionEnter2D(Collision2D other)
 	{
 
 		if (other.gameObject.CompareTag("Ground"))
@@ -167,14 +169,16 @@ public class PlayerMovementBehaviour : MonoBehaviour
 			isGrounded = true;
 			
 		}
-		else if(other.gameObject.CompareTag("Pinball"))
-		{
-			pinBallObjects.Add(other.gameObject);
-        }
 	}
 
-    void OnCollisionExit(Collision collision)
+    void OnCollisionExit2D(Collision2D other)
     {
-		pinBallObjects.Remove(collision.gameObject);
-    }
+		if (other.gameObject.CompareTag("Ground"))
+		{
+			//jumpAllow = false;
+			//dust.Play();
+			//isGrounded = false;
+
+		}
+	}
 }
