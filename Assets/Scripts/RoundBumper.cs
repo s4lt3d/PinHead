@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoundBumper : MonoBehaviour
 {
-    public AudioSource audio;
+    public AudioSource audioSource;
 
     public float explosiveForce = 1000;
     public float scale = 1.5f;
@@ -24,15 +24,15 @@ public class RoundBumper : MonoBehaviour
         transform.localScale = new Vector3(_scale, _scale, _scale);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         _scale = 1.5f;
-        Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+        Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
             rb.AddExplosionForce(explosiveForce, transform.position, 3);
         }
-        audio.Play();
+        audioSource.Play();
     }
 
 }
