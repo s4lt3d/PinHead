@@ -81,7 +81,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -192,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5076118438370726704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 1, z: 0}
+  m_LocalPosition: {x: 0.058738574, y: 2.8587022, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8230265365564677488}
@@ -313,6 +313,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 86df7af9-0912-40a2-a647-65a0e5227607
     m_ActionName: GamePlay/Look
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5148414882984657378}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnSwingCW
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 120d056d-f918-4e12-9dc5-487b5d4fbc8b
+    m_ActionName: GamePlay/SwingCW[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: GamePlay
@@ -347,12 +363,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 3186168132574051936}
   tip: {fileID: 7310495541097580249}
-  animator: {fileID: 0}
+  animator: {fileID: 1309391573872431886}
   dust: {fileID: 5148414884420965173}
   groundDetector: {fileID: 0}
-  paddleSwing: {fileID: 0}
+  paddleSwing: {fileID: 3563025446422611299}
   gravity: {x: 0, y: -200, z: 0}
-  jumpForce: 25
+  jumpForce: 40
   jumpTimeMax: 0.183
   horizontalSpeed: 1500
   explosiveForce: 4000
@@ -5224,7 +5240,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 1.9954609}
@@ -5262,7 +5278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swinging: 0
-  explosiveForce: 100
+  explosiveForce: 5
   tip: {fileID: 7382427972108926736}
 --- !u!1001 &5979477243354071838
 PrefabInstance:
@@ -5364,7 +5380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f888bac8a84a18e47b42ba1cc4a41e48, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0000023841856
+      value: -0.004101402
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f888bac8a84a18e47b42ba1cc4a41e48, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5372,11 +5388,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f888bac8a84a18e47b42ba1cc4a41e48, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f888bac8a84a18e47b42ba1cc4a41e48, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1
+      value: -0.99999166
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f888bac8a84a18e47b42ba1cc4a41e48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5388,7 +5404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f888bac8a84a18e47b42ba1cc4a41e48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -180
+      value: -180.47
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: f888bac8a84a18e47b42ba1cc4a41e48, type: 3}
       propertyPath: m_Materials.Array.data[0]

@@ -43,10 +43,15 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	Jump_State jumpState;
 
 
-	bool swing = false;
-	bool swingPrev = false;
-	bool swingChange = true;
-	
+	bool swingCCW = false;
+	bool swingCCWPrev = false;
+	bool swingCCWChange = true;
+
+
+	bool swingCW = false;
+	bool swingCWPrev = false;
+	bool swingCWChange = true;
+
 	List<GameObject> pinBallObjects = new List<GameObject>();
 
 	float jumpStartTime;
@@ -76,12 +81,20 @@ public class PlayerMovementBehaviour : MonoBehaviour
 			jumpChange = true;
 	}
 
-	public void UpdateSwingData(bool newSwing)
+	public void UpdateSwingCCWData(bool newSwing)
 	{
-		swingPrev = swing;
-		swing = newSwing;
-		if (swingPrev != swing)
-			swingChange = true;
+		swingCCWPrev = swingCCW;
+		swingCCW = newSwing;
+		if (swingCCWPrev != swingCCW)
+			swingCCWChange = true;
+	}
+
+	public void UpdateSwingCWData(bool newSwing)
+	{
+		swingCWPrev = swingCW;
+		swingCW = newSwing;
+		if (swingCWPrev != swingCW)
+			swingCWChange = true;
 	}
 
 
@@ -136,15 +149,23 @@ public class PlayerMovementBehaviour : MonoBehaviour
 			playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpVector.y);
 		}
 
-		if (swingChange)
+		if (swingCCWChange)
 		{
-			if (swingChange)
+			if (swingCCWChange)
 				swingStartTime = Time.fixedTime;
-			swingChange = false;
+			swingCCWChange = false;
 			
 
-			animator.SetBool("Swing", swing);
+			animator.SetBool("SwingCCW", swingCCW);
+		}
+		if (swingCWChange)
+		{
+			if (swingCWChange)
+				swingStartTime = Time.fixedTime;
+			swingCWChange = false;
 
+
+			animator.SetBool("SwingCW", swingCW);
 		}
 
 		if (Time.fixedTime - swingStartTime < swingTime)

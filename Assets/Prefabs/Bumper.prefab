@@ -1556,7 +1556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1779816746}
-  explosiveForce: 500
+  explosiveForce: 5
   scale: 1.5
   speed: 10
 --- !u!82 &1779816746

@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 smoothInputMovement;
 
     private bool jump = false;
-    private bool swing = false;
+    private bool swingccw = false;
+    private bool swingcw = false;
 
     public Camera mainCamera;
 
@@ -34,9 +35,13 @@ public class PlayerController : MonoBehaviour
 
     public void OnSwing(InputAction.CallbackContext value)
     {
-        swing = value.ReadValueAsButton();
+        swingccw = value.ReadValueAsButton();
     }
 
+    public void OnSwingCW(InputAction.CallbackContext value)
+    {
+        swingcw = value.ReadValueAsButton();
+    }
 
     private void Update()
     {
@@ -48,7 +53,8 @@ public class PlayerController : MonoBehaviour
     {
         playerMovementBehaviour.UpdateMovementData(rawInputMovement);
         playerMovementBehaviour.UpdateJumpData(jump);
-        playerMovementBehaviour.UpdateSwingData(swing);
+        playerMovementBehaviour.UpdateSwingCCWData(swingccw);
+        playerMovementBehaviour.UpdateSwingCWData(swingcw);
     }
 
 

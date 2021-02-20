@@ -11,21 +11,27 @@ public class PaddleSwing : MonoBehaviour
 
     List<GameObject> pinBallObjects = new List<GameObject>();
 
-    void FixedUpdate()
+    void Update()
     {
 
         if (swinging)
         {
+            List<GameObject> removes = new List<GameObject>();
+            
             foreach (GameObject o in pinBallObjects)
             {
-                Debug.Log("Hit!");
                 o.GetComponent<Rigidbody2D>().AddExplosionForce(explosiveForce, tip.position, 6.5f);
+                // mark for removal as we can't remove within the loop. 
+                removes.Add(o);
             }
+
+            foreach (GameObject o in removes)
+                pinBallObjects.Remove(o);
         }
     }
 
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Pinball"))
         {
@@ -34,7 +40,7 @@ public class PaddleSwing : MonoBehaviour
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
         pinBallObjects.Remove(collision.gameObject);
     }
