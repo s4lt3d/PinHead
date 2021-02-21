@@ -74,3 +74,6 @@ Assets/PolybrushData*
 
 # Asset Bundles folder
 /StreamingAssets/
+
+# UserSettings
+UserSettings/EditorUserSettings.asset
