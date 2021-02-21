@@ -11,6 +11,7 @@ public class BallCapture : MonoBehaviour
     public Light pointLight;
     public Color captureColor;
     public Collider2D collider2d;
+    public bool ballDestory = false;
 
     [Header("Ball Count Object")]
     public FloatVariable ballcount;
@@ -22,13 +23,17 @@ public class BallCapture : MonoBehaviour
         if (other.gameObject.CompareTag("Pinball"))
         {
             GameObject.Destroy(other.gameObject);
-            GameObject.Instantiate(captureObject, transform);
+            
             particles.enableEmission = false;
             pointLight.color = captureColor;
             collider2d.enabled = false;
 
             // update the total number of balls captured. 
-            ballcount.Value += 1;
+            if (ballDestory == false)
+            {
+                GameObject.Instantiate(captureObject, transform);
+                ballcount.Value += 1;
+            }
         }
     }
 
