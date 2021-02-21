@@ -6280,6 +6280,7 @@ MonoBehaviour:
   pointLight: {fileID: 6568816653095179507}
   captureColor: {r: 1, g: 1, b: 1, a: 0}
   collider2d: {fileID: 1036391504}
+  ballcount: {fileID: 11400000, guid: 62e24092108997b428bbc0ae4ff75b32, type: 2}
 --- !u!58 &1036391504
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6290,7 +6291,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

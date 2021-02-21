@@ -12,6 +12,9 @@ public class BallCapture : MonoBehaviour
     public Color captureColor;
     public Collider2D collider2d;
 
+    [Header("Ball Count Object")]
+    public FloatVariable ballcount;
+
 
     [System.Obsolete]
     private void OnTriggerEnter2D(Collider2D other)
@@ -23,6 +26,9 @@ public class BallCapture : MonoBehaviour
             particles.enableEmission = false;
             pointLight.color = captureColor;
             collider2d.enabled = false;
+
+            // update the total number of balls captured. 
+            ballcount.Value += 1;
         }
     }
 
