@@ -24,13 +24,13 @@ public class BallCapture : MonoBehaviour
         {
             GameObject.Destroy(other.gameObject);
             
-            particles.enableEmission = false;
-            pointLight.color = captureColor;
-            collider2d.enabled = false;
-
+            
             // update the total number of balls captured. 
             if (ballDestory == false)
             {
+                particles.enableEmission = false;
+                pointLight.color = captureColor;
+                collider2d.enabled = false;
                 GameObject.Instantiate(captureObject, transform);
                 ballcount.Value += 1;
             }
